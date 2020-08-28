@@ -1,0 +1,39 @@
+<div class="container">
+    {{!-- buttons and user profile pic --}}
+    <div class="row">
+        {{!-- search movies button --}}
+        <div class="col-md-3 text-center">
+			<form action="" class="search-form" method="POST">
+				<input type="text" class="form control" name="" id="search">
+				<button type="button" class="btn btn-dark" id="searchBTN">Search</button>
+			</form>
+		</div>
+        {{!-- view what you want to watch list --}}
+        <div class="col-md-3 text-center">
+			<form action="" class="watch-form" method="POST">
+				<input type="text" class="form control" name="" id="watch">
+				<button type="submit" class="btn btn-info" id="watchBTN">To Watch</button>
+			</form>
+		</div>
+        {{!-- image/link to show signed in and profile --}}
+        <div class="col-md-3">
+            <a href="" class="userPic">
+                <img src="user profile pic" alt="profile-pic" height="" width="" id="picture">
+            </a>
+        </div>
+    </div>
+    {{!-- ratings --}}
+    <div class="row">
+        <div class="col-md-3 text-center">
+            {{yourRating}}<br>
+            <p>Your Rating</p>
+        </div>
+        <div class="col-md-3 text-center">
+            {{this.vs}}
+        </div>
+        <div class="col-md-3 text-center">
+            {{MobRating}}<br>
+            <p>Mob Rating</p>
+        </div>
+    </div>
+</div>
