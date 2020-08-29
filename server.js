@@ -41,11 +41,15 @@ var animals = [
 		// If they are good to go, show 
   
 	//data = { animals: animals }
-	data = {testdata: "this is a test #1"};
+	data = {
+		testdata: "this is a test #1",
+		MovieTitle: "TestMovie1",
+		MovieDescription: "MovieDescription1"
+	};
 	console.log("We got this far #1");
 
 	// Show logged-in profile page:
-	//res.render("index", data);
+	res.render("index", data);
 
 	// Show login page
 	//res.render("login")
