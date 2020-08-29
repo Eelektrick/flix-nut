@@ -4,15 +4,15 @@
     <div class="row">
         {{!-- search movies button, Button trigger modal --}}
         <div class="col-md-3 text-center">
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalLong">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalLong1">
                 Search
             </button>
             {{!-- Modal --}}
-            <div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade" id="ModalLong1" tabindex="-1" role="dialog" aria-labelledby="movieSearch" aria-hidden="true">
+                <div class="modal-dialog1" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Movie Search</h5>
+                            <h5 class="modal-title" id="movieSearch">Movie Search</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -21,23 +21,38 @@
                             ...
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary save">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-			{{!-- <form action="" class="search-form" method="POST">
-				<input type="text" class="form control" name="" id="search">
-				<button type="button" class="btn btn-dark" id="searchBTN">Search</button>
-			</form> --}}
 		</div>
-        {{!-- view what you want to watch list --}}
+        {{!-- view what you want to watch list, Button trigger modal --}}
         <div class="col-md-3 text-center">
-			<form action="" class="watch-form" method="POST">
-				<input type="text" class="form control" name="" id="watch">
-				<button type="submit" class="btn btn-info" id="watchBTN">To Watch</button>
-			</form>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalLong2">
+                To Watch
+            </button>
+            {{!-- Modal --}}
+            <div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="toWatch" aria-hidden="true">
+                <div class="modal-dialog2" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="toWatch">Movies To Watch</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary save">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
         {{!-- image/link to show signed in and profile --}}
         <div class="col-md-3">
