@@ -8,6 +8,9 @@ var PORT = process.env.PORT || 8080;
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+//static content for the app from the public directory
+app.use(express.static("public"));
+
 var animals = [
 	{
 	  animalType: "dog",
