@@ -1,9 +1,9 @@
 
-<div class="container">
+<div class="container-fluid">
     {{!-- buttons and user profile pic --}}
-    <div class="row">
+    <div class="row navbar">
         {{!-- search movies button, Button trigger modal --}}
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center mt-3">
             <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalLong1">
                 Search
             </button>
@@ -29,7 +29,7 @@
             </div>
 		</div>
         {{!-- view what you want to watch list, Button trigger modal --}}
-        <div class="col-md-3 text-center">
+        <div class="col-md-4 text-center mt-3">
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalLong2">
                 To Watch
             </button>
@@ -55,14 +55,14 @@
             </div>
 		</div>
         {{!-- image/link to show signed in and profile --}}
-        <div class="col-md-3">
+        <div class="col-md-4 mt-3">
             <a href="" class="userPic">
                 <img src="user profile pic" alt="profile-pic" height="" width="" id="picture">
             </a>
         </div>
     </div>
     {{!-- ratings --}}
-    <div class="row">
+    <div class="row ratings">
         <div class="col-md-3 text-center">
             {{yourRating}}<br>
             <p>Your Rating</p>
@@ -75,7 +75,7 @@
             <p>Mob Rating</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row filter">
         <div class="col-md-6">
            <div class="dropdown show">
              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,39 +89,41 @@
         </div>
     </div>
     {{!-- body --}}
-    <div class="col-lg-12">
-        <ul>
-            <li>
-                <div class="row">
-                    <div class="col-md-9 card" data-toggle="collapse">
-                        <div class="card-body">
-                            <form action="" class="search-form" method="GET">
-				                <h5 class="card-title">{{MovieTitle}}</h5>
-                                <p class="card-text">{{MovieDescription}}</p>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p>Your Rating</p>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
+    <div class="row">
+        <div class="col-lg-12 mt-5 listbox">
+            <ul>
+                <li>
+                    <div class="row">
+                        <div class="col-md-9 card movie-card" data-toggle="collapse" style=>
+                            <div class="card-body">
+                                <form action="" class="search-form" method="GET">
+                                    <h5 class="card-title">{{MovieTitle}}</h5>
+                                    <p class="card-text">{{MovieDescription}}</p>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p>Your Rating</p>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <p>Mob Rating</p>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <p>Mob Rating</p>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-			                </form> 
+                                </form> 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 
