@@ -1,0 +1,26 @@
+.container-fluid {
+    background-color: rgb(127, 127, 209);
+    height: 100vh;
+}
+
+.navbar, .ratings {
+    flex-wrap: nowrap;
+}
+
+.listbox {
+    margin-right: 10%;
+}
+
+.movie-card {
+    margin: auto;
+}
+
+.ratings {
+    background-color: antiquewhite;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.filter {
+    background-color: azure;
+}
