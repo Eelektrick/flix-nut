@@ -28,6 +28,7 @@ var PORT = process.env.PORT || 8080;
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false}));
 // app.use(flash());
 // app.use(session({
@@ -39,56 +40,58 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
 
+app.get('/', checkAuthenticated, (req, res) => {
+	res.render('index', { name: req.user.name })
+});
 
+app.get('/login', checkNotAuthenticated, (req, res) => {
+    res.render('login')
+});
 
-//static content for the app from the public directory
-app.use(express.static("public"));
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}))
 
-var animals = [
-	{
-	  animalType: "dog",
-	  pet: true,
-	  fierceness: 4
-	}, {
-	  animalType: "cat",
-	  pet: true,
-	  fierceness: 10
-	}, {
-	  animalType: "giraffe",
-	  pet: false,
-	  fierceness: 4
-	}, {
-	  animalType: "zebra",
-	  pet: false,
-	  fierceness: 8
-	}, {
-	  animalType: "lion",
-	  pet: false,
-	  fierceness: 10
-	}
-  ];
+app.get('/register', checkNotAuthenticated, (req, res) => {
+    res.render('register')
+});''
 
-  app.get("/", function(req, res) {
-	
-	// Use SESSION/userId info or whatever to query db for user info
-		// If they are good to go, show 
-  
-	//data = { animals: animals }
-	data = {
-		testdata: "this is a test #1",
-		MovieTitle: "TestMovie1",
-		MovieDescription: "MovieDescription1"
-	};
-	console.log("We got this far #1");
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        users.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        });
+        res.redirect('/login');
+    } catch {
+        res.redirect('/register');
+    };
+    console.log(users);
+});
 
-	// Show logged-in profile page:
-	res.render("index", data);
+app.delete('/logout', (req, res) => {
+    req.logout()
+    res.redirect('/login')
+})
 
-	// Show login page
-	//res.render("login")
-	//redirect to /login?
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+    res.redirect('login')
+}
 
-  });
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
 
   app.listen(PORT, function() {
 	console.log("App listening on PORT " + PORT);
