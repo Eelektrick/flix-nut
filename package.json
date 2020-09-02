@@ -1,7 +1,7 @@
 {
   "name": "flix-nut",
   "version": "1.0.0",
-  "description": "",
+  "description": "# Table of Contents",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -30,6 +30,6 @@
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.3.4"
+    "sequelize": "^6.3.5"
   }
 }
