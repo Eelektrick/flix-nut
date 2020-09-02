@@ -1,14 +1,14 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-            <form action="" id="log_in">
-                <p>Username</p>
-                <input type="text" id="username">
+            <form action="/login" method="POST">
+                <p>Email</p>
+                <input type="email" id="email" name="email" required>
                 <p>Password</p>
-                <input type="text" id="password">
+                <input type="password" id="password" name="password" required>
                 <button type="submit" id="login">Log In</button>
                 <p>Not A Member?</p>
-                <button type="submit" id="sigup">Sign Up</button>
+                <a href="/register">Register</a>
             </form>
         </div>
     </div>

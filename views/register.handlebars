@@ -1,17 +1,16 @@
 <div class="col-lg-12">
     <div class="card">
         <div class="card-body">
-            <form action="" data-toggle="collapse" id="sign_up">
+            <form action="/register" method="POST">
                 <p>E-mail</p>
-                <input type="text" id="email">
-                <p>Username</p>
-                <input type="text" id="username">
+                <input type="email" id="email" name="email" required>
+                <p>Name</p>
+                <input type="text" id="name" name="name" required>
                 <p>Password</p>
-                <input type="text" id="password">
-                <p>Confirm Password</p>
-                <input type="text" id="confirm">
-                <button type="submit">Sign Up</button>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Register</button>
             </form>
+            <a href="/login">Login</a>
         </div>
     </div>
 </div>
