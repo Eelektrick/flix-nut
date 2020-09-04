@@ -1,18 +1,19 @@
 
-<div class="container">
+<div class="container-fluid bg-primary">
     {{!-- buttons and user profile pic --}}
-    <div class="row">
+    <div class="row navbar">
         {{!-- search movies button, Button trigger modal --}}
-        <div class="col-md-3 text-center">
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalLong">
+        
+        <div class="col-md-3 text-center mt-3">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalLong1">
                 Search
             </button>
             {{!-- Modal --}}
-            <div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+            <div class="modal fade" id="ModalLong1" tabindex="-1" role="dialog" aria-labelledby="movieSearch" aria-hidden="true">
+                <div class="modal-dialog1" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Movie Search</h5>
+                            <h5 class="modal-title" id="movieSearch">Movie Search</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -21,50 +22,71 @@
                             ...
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary save">Save changes</button>
                         </div>
                     </div>
                 </div>
             </div>
-			{{!-- <form action="" class="search-form" method="POST">
-				<input type="text" class="form control" name="" id="search">
-				<button type="button" class="btn btn-dark" id="searchBTN">Search</button>
-			</form> --}}
 		</div>
-        {{!-- view what you want to watch list --}}
-        <div class="col-md-3 text-center">
-			<form action="" class="watch-form" method="POST">
-				<input type="text" class="form control" name="" id="watch">
-				<button type="submit" class="btn btn-info" id="watchBTN">To Watch</button>
-			</form>
+        <div class="col-md-1"></div>
+        {{!-- view what you want to watch list, Button trigger modal --}}
+        <div class="col-md-3 text-center mt-3">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalLong2">
+                To Watch
+            </button>
+            {{!-- Modal --}}
+            <div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="toWatch" aria-hidden="true">
+                <div class="modal-dialog2" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="toWatch">Movies To Watch</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary save">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
+        <div class="col-md-2"></div>
         {{!-- image/link to show signed in and profile --}}
-        <div class="col-md-3">
-            <a href="" class="userPic">
-                <img src="user profile pic" alt="profile-pic" height="" width="" id="picture">
+        <div class="col-md-2 mt-3 mr-2">
+            <a href="images/bat.png" class="userPic">
+                <img src="images/bat.png" alt="profile-pic" height="50px" width="50px" id="picture">
             </a>
         </div>
     </div>
     {{!-- ratings --}}
-    <div class="row">
+    <div class="row ratings">
         <div class="col-md-3 text-center">
-            {{yourRating}}<br>
+            {{yourRating}}50<br>
             <p>Your Rating</p>
         </div>
-        <div class="col-md-3 text-center">
-            {{this.vs}}
+        <div class="col-sm-2"></div>
+        <div class="col-md-2 text-center mt-3">
+            <p>VS</p>
         </div>
-        <div class="col-md-3 text-center">
-            {{MobRating}}<br>
+        <div class="col-sm-1"></div>
+        <div class="col-md-3 text-center mr-3">
+            {{MobRating}}50<br>
             <p>Mob Rating</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-           <div class="dropdown show">
-             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            </a>
+    <div class="row filter">
+        {{!-- <div class="col-md-6"></div> --}}
+        <div class="col-md-12">
+           <div class="dropdown">
+             <button class="btn btn-secondary dropdown-toggle mr-3 mt-1 mb-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filter
+            </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#">Your Rating</a>
                 <a class="dropdown-item" href="#">Mob Rating</a>
@@ -74,39 +96,42 @@
         </div>
     </div>
     {{!-- body --}}
-    <div class="col-lg-12">
-        <ul>
-            <li>
-                <div class="row">
-                    <div class="col-md-9 card" data-toggle="collapse">
-                        <div class="card-body">
-                            <form action="" class="search-form" method="GET">
-				                <h5 class="card-title">{{MovieTitle}}</h5>
-                                <p class="card-text">{{MovieDescription}}</p>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p>Your Rating</p>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
+    <div class="row">
+        <div class="col-lg-12 mt-5 listbox">
+            <ul class="movieList">
+                <li>
+                    <div class="row">
+                        <div class="col-md-9 card movie-card" data-toggle="collapse" style=>
+                            <div class="card-body">
+                                <form action="" class="search-form" method="GET">
+                                    <h5 class="card-title">{{MovieTitle}}</h5>
+                                    <p class="card-text">{{MovieDescription}}</p>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <p>Your Rating</p>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-3">
+                                            <p>Mob Rating</p>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <p>Mob Rating</p>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                    </div>
-                                </div>
-			                </form> 
+                                </form> 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 
