@@ -1,32 +1,41 @@
 /* index handlebars css */
 .container-fluid {
-    background-color: rgb(127, 127, 209);
+    /* background-color: rgb(127, 127, 209); */
     height: 100vh;
 }
 
-.navbar, .ratings {
+.navbar, .ratings, .filter {
     flex-wrap: nowrap;
+    background-color: white;
+    padding: 5px;
 }
-
+.ratings {
+    text-align: center;
+    padding-top: 25px;
+}
+.dropdown {
+    float: right;
+}
 .listbox {
     margin-right: 10%;
 }
 
 .movie-card {
     margin: auto;
+    
 }
 
 .ratings {
-    background-color: antiquewhite;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    background-color: white;
+}
+
+.movieList {
+    list-style-type: none;
 }
 
 
 /* register and login page css */
-.filter {
-    background-color: azure;
-}
+
 
 .center {
     margin: auto;
@@ -48,3 +57,4 @@
 #email, #password, #login{
     margin-bottom: 15px;
 }
+
