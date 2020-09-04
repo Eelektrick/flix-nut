@@ -1,6 +1,5 @@
 /* index handlebars css */
 .container-fluid {
-    /* background-color: rgb(127, 127, 209); */
     height: 100vh;
 }
 
@@ -31,8 +30,12 @@
 
 .movieList {
     list-style-type: none;
+    margin-right: 10px;
 }
 
+#card-row{
+    flex-wrap: nowrap;
+}
 
 /* register and login page css */
 
