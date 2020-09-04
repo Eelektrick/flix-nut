@@ -1,16 +1,20 @@
-<div class="col-lg-12">
-    <div class="card">
-        <div class="card-body">
-            <form action="/register" method="POST">
-                <p>E-mail</p>
-                <input type="email" id="email" name="email" required>
-                <p>Name</p>
-                <input type="text" id="name" name="name" required>
-                <p>Password</p>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Register</button>
-            </form>
-            <a href="/login">Login</a>
+<div class="container align-items-center center">
+    <div class="col-lg-12 text-center my-auto">
+        <div class="card card-block d-flex bg-primary">
+            <div class="card-body align-items-center d-flex justify-content-center">
+                <form action="/register" method="POST">
+                    <label for="email">E-mail</label>
+                    <br>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <label for="password">Password</label>
+                    <br>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <button type="submit" id="registerBTN">Register</button>
+                </form>
+                <a href="/login">Login</a>
+            </div>
         </div>
     </div>
 </div>

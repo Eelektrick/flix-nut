@@ -1,3 +1,4 @@
+/* index handlebars css */
 .container-fluid {
     background-color: rgb(127, 127, 209);
     height: 100vh;
@@ -21,6 +22,29 @@
     margin-bottom: 5px;
 }
 
+
+/* register and login page css */
 .filter {
     background-color: azure;
+}
+
+.center {
+    margin: auto;
+    padding-top: 250px;
+}
+
+#Nmember{
+    margin-top: 10px;
+}
+
+#regBTN{
+    color: ghostwhite;
+}
+
+#registerBTN{
+    margin-top: 10px;
+}
+
+#email, #password, #login{
+    margin-bottom: 15px;
 }
