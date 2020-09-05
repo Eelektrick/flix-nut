@@ -3,12 +3,13 @@ if (process.env.NODE_ENV != 'production') {
 };
 
 const express = require("express");
+const session = require("express-session");
 const exphbs = require("express-handlebars");
 const bcrypt = require("bcrypt");
-const passport = require("passport");
-const flash = require("express-flash");
-const session = require("express-session");
-const methodOverride = require("method-override");
+const passport = require("./config/passport");
+// const flash = require("express-flash");
+
+// const methodOverride = require("method-override");
 
 const initializePassport = require('./config/passport-config.js');
 initializePassport(
@@ -22,10 +23,11 @@ initializePassport(
     // Delete me later
 const users = [];
 
-var app = express();
+
 
 var PORT = process.env.PORT || 8080;
 
+var app = express();
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
@@ -74,10 +76,10 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
     console.log(users);
 });
 
-app.delete('/logout', (req, res) => {
-    req.logout()
-    res.redirect('/login')
-})
+// app.delete('/logout', (req, res) => {
+//     req.logout()
+//     res.redirect('/login')
+// })
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
