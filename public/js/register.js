@@ -11,10 +11,6 @@ $(document).ready(function() {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-    console.log(userData.email);
-    console.log(userData.password);
-    return;
-
 
     if (!userData.email || !userData.password) {
       return;
@@ -33,7 +29,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
