@@ -2,13 +2,13 @@ if (process.env.NODE_ENV != 'production') {
     require('dotenv').config()
 };
 
-// const express = require("express");
-// const exphbs = require("express-handlebars");
-// const bcrypt = require("bcrypt");
-// const passport = require("passport");
-// const flash = require("express-flash");
-// const session = require("express-session");
-// const methodOverride = require("method-override");
+const express = require("express");
+const exphbs = require("express-handlebars");
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
+const methodOverride = require("method-override");
 
 // const initializePassport = require('./config/passport-config.js');
 // initializePassport(
@@ -22,7 +22,7 @@ if (process.env.NODE_ENV != 'production') {
 //     // Delete me later
 // const users = [];
 
-// var app = express();
+var app = express();
 
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
@@ -79,6 +79,9 @@ app.delete('/logout', (req, res) => {
     res.redirect('/login')
 })
 
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
+
 // function checkAuthenticated(req, res, next) {
 //     if (req.isAuthenticated()) {
 //         return next()
@@ -93,6 +96,8 @@ app.delete('/logout', (req, res) => {
 //     next()
 // }
 
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-	console.log("App listening on PORT " + PORT);
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
+});
