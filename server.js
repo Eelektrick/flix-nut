@@ -3,11 +3,11 @@ if (process.env.NODE_ENV != 'production') {
 };
 
 const express = require("express");
+const session = require("express-session");
 const exphbs = require("express-handlebars");
 const bcrypt = require("bcrypt");
 const passport = require("./config/passport");
 // const flash = require("express-flash");
-const session = require("express-session");
 // const methodOverride = require("method-override");
 
 // const initializePassport = require('./config/passport-config.js');
@@ -22,11 +22,12 @@ const session = require("express-session");
 //     // Delete me later
 // const users = [];
 
-var app = express();
+
 
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
+var app = express();
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
@@ -76,10 +77,10 @@ app.use(passport.session());
 //     console.log(users);
 // });
 
-app.delete('/logout', (req, res) => {
-    req.logout()
-    res.redirect('/login')
-})
+// app.delete('/logout', (req, res) => {
+//     req.logout()
+//     res.redirect('/login')
+// })
 
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);

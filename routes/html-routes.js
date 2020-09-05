@@ -17,11 +17,11 @@ module.exports = function(app) {
     res.render("login");
   });
 
-  app.get("/register", function(req, res) {
+  app.get("/signup", function(req, res) {
     if (req.user) {
       res.render("index");
     }
-    res.render("register");
+    res.render("signup");
   });
 
 };
