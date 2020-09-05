@@ -1,0 +1,63 @@
+/* index handlebars css */
+.container-fluid {
+    height: 100vh;
+}
+
+.navbar, .ratings, .filter {
+    flex-wrap: nowrap;
+    background-color: white;
+    padding: 5px;
+}
+.ratings {
+    text-align: center;
+    padding-top: 25px;
+}
+.dropdown {
+    float: right;
+}
+.listbox {
+    margin-right: 10%;
+}
+
+.movie-card {
+    margin: auto;
+    
+}
+
+.ratings {
+    background-color: white;
+}
+
+.movieList {
+    list-style-type: none;
+    margin-right: 10px;
+}
+
+#card-row{
+    flex-wrap: nowrap;
+}
+
+/* register and login page css */
+
+
+.center {
+    margin: auto;
+    padding-top: 250px;
+}
+
+#Nmember{
+    margin-top: 10px;
+}
+
+#regBTN{
+    color: ghostwhite;
+}
+
+#registerBTN{
+    margin-top: 10px;
+}
+
+#email, #password, #login{
+    margin-bottom: 15px;
+}
+
