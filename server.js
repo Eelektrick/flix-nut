@@ -5,10 +5,10 @@ if (process.env.NODE_ENV != 'production') {
 const express = require("express");
 const exphbs = require("express-handlebars");
 const bcrypt = require("bcrypt");
-const passport = require("passport");
-const flash = require("express-flash");
+const passport = require("./config/passport");
+// const flash = require("express-flash");
 const session = require("express-session");
-const methodOverride = require("method-override");
+// const methodOverride = require("method-override");
 
 // const initializePassport = require('./config/passport-config.js');
 // initializePassport(
@@ -30,15 +30,17 @@ var db = require("./models");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 app.use(session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(methodOverride('_method'));
+
+// app.use(methodOverride('_method'));
 
 // app.get('/', checkAuthenticated, (req, res) => {
 // 	res.render('index', { name: req.user.name })
