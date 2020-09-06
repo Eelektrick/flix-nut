@@ -5,7 +5,7 @@ module.exports = function(app) {
 
   app.get("/", function(req, res) {
     if (req.user) {
-      res.render("index");
+      return res.render("index");
     }
     res.render("login");
   });
