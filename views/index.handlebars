@@ -5,26 +5,30 @@
         {{!-- search movies button, Button trigger modal --}}
         
         <div class="col-md-3 text-center mt-3">
-            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#ModalLong1">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#searchModal">
                 Search
             </button>
             {{!-- Modal --}}
-            <div class="modal fade" id="ModalLong1" tabindex="-1" role="dialog" aria-labelledby="movieSearch" aria-hidden="true">
-                <div class="modal-dialog1" role="document">
+            <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="movieSearch">Movie Search</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary save">Save changes</button>
-                        </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="searchBar">
+                        <input type="text">
+                        <button class="btn btn-primary">Search</button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -32,36 +36,22 @@
         <div class="col-md-1"></div>
         {{!-- view what you want to watch list, Button trigger modal --}}
         <div class="col-md-3 text-center mt-3">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalLong2">
+            {{!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalLong2">
                 To Watch
-            </button>
-            {{!-- Modal --}}
-            <div class="modal fade" id="ModalLong2" tabindex="-1" role="dialog" aria-labelledby="toWatch" aria-hidden="true">
-                <div class="modal-dialog2" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="toWatch">Movies To Watch</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary save">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </button> --}}
 		</div>
         <div class="col-md-2"></div>
         {{!-- image/link to show signed in and profile --}}
         <div class="col-md-2 mt-3 mr-2">
-            <a href="images/bat.png" class="userPic">
+            <div class="dropdown">
+                <a href="" class="userPic btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
                 <img src="images/bat.png" alt="profile-pic" height="50px" width="50px" id="picture">
-            </a>
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" onClick="location.reload()" href="/login">Logout</a>
+                    </div>
+            </div>
+            
         </div>
     </div>
     {{!-- ratings --}}
@@ -84,7 +74,7 @@
         {{!-- <div class="col-md-6"></div> --}}
         <div class="col-md-10"></div>
         <div class="col-md-1 ml-4">
-           <div class="dropdown">
+           {{!-- <div class="dropdown">
              <button class="btn btn-secondary dropdown-toggle mt-1 mb-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Filter
             </button>
@@ -93,11 +83,12 @@
                 <a class="dropdown-item" href="#">Mob Rating</a>
                 <a class="dropdown-item" href="#">Date Added</a>
                 </div>
-            </div> 
+            </div>  --}}
         </div>
         <div class="col"></div>
     </div>
     {{!-- body --}}
+    <h3 class="text-center mt-5">Movie List</h3>
     <div class="row">
         <div class="col-lg-12 mt-5 listbox pl-3">
             <ul class="movieList">
