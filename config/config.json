@@ -2,7 +2,6 @@
   "development": {
     "username": "v5e21xtqlw4gpwcv",
     "password": "titlngauau108vq9",
-    "port": 3306,
     "database": "rj9c7bu7a64r27z3",
     "host": "rnr56s6e2uk326pj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
