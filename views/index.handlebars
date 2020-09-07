@@ -43,8 +43,12 @@
 							</button>
 						</div>
 						<div class="modal-body" id="youRatingDiv">
-							<input type="text" id="yourRating">
-							<button class="btn btn-primary" id="addYourRating">Rate</button>
+							<form class="addMovieClass">
+								<input type="text" id="userRating">
+								<input type="hidden" id="averageRating" value="">
+								<input type="hidden" id="movieName" value="">
+								<button type="submit" class="btn btn-primary" id="addYourRating">Rate</button>
+							</form>
 						</div>
 						<div class="modal-footer">
 						</div>
@@ -149,3 +153,4 @@
 </div>
 
 <script type="text/javascript" src="js/movieSearch.js"></script>
+<script type="text/javascript" src="js/addMovie.js"></script>
