@@ -43,8 +43,13 @@
 							</button>
 						</div>
 						<div class="modal-body" id="youRatingDiv">
-							<input type="text" id="yourRating">
-							<button class="btn btn-primary" id="addYourRating">Rate</button>
+							<form class="addMovieClass">
+								<input type="text" id="userRating">
+								<input type="hidden" id="averageRating" value="">
+								<input type="hidden" id="movieName" value="">
+								<input type="hidden" id="userId" value="{{ userId }}">
+								<button type="submit" class="btn btn-primary" id="addYourRating">Rate</button>
+							</form>
 						</div>
 						<div class="modal-footer">
 						</div>
@@ -110,6 +115,22 @@
     {{!-- body --}}
     <h2 class="text-center mt-5">Movie List</h2>
     <div class="row">
+
+		<div class="col-lg-12 mt-5 listbox pl-3">
+			{{#each watchedMovies}}
+			<div class="card" style="width: 18rem;">
+				<div style="height:200px; overflow:hidden;">
+					<img class="card-img-top" src="{{poster}}" alt="Card image cap">
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">{{title}}</h5>
+					<p class="card-text">{{plot}}</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+
         <div class="col-lg-12 mt-5 listbox pl-3">
             <ul class="movieList">
                 <li>
@@ -141,3 +162,4 @@
 </div>
 
 <script type="text/javascript" src="js/movieSearch.js"></script>
+<script type="text/javascript" src="js/addMovie.js"></script>

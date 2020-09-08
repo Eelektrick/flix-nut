@@ -60,11 +60,14 @@ function displayMovieInfo() {
 		var movieAdd = $('<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#addModal" id="rateMovie">Add Movie</button>');
 		movieCard.append(movieAdd);
 		$('#yourRatingTitle').text("Rate " + response.Title);
+		$('#movieName').val(response.Title);
+		$('#averageRating').val(averageRating);
 
 	});
 
 
 }
+
 
 $("#add-movie").on("click", function(event) {
 	event.preventDefault();
