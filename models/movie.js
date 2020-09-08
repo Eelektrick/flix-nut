@@ -4,6 +4,10 @@ var bcrypt = require("bcryptjs");
 module.exports = function(sequelize, DataTypes) {
   var Movie = sequelize.define("Movie", {
     // The email cannot be null, and must be a proper email before creation
+	userId: {
+		type: DataTypes.INTEGER,
+		allowNull: false
+	},
 	userRating: {
 		type: DataTypes.STRING,
 		allowNull: false

@@ -68,6 +68,7 @@ function displayMovieInfo() {
 
 }
 
+
 $("#add-movie").on("click", function(event) {
 	event.preventDefault();
 	displayMovieInfo();

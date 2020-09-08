@@ -3,6 +3,7 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
 
+
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json({
       email: req.user.email,
@@ -26,21 +27,18 @@ module.exports = function(app) {
   });
 
   app.post("/api/addmovie", function(req, res) {
-	
-	console.log("userRating: " + req.body.userRating);
-	console.log("averageRating: " + req.body.averageRating);
-	console.log("movieName: " + req.body.movieName);
 
 	db.Movie.create({
+		userId: req.body.userId,
 		userRating: req.body.userRating,
 		averageRating: req.body.averageRating,
 		movieName: req.body.movieName,
     })
       .then(function() {
-        res.redirect(307, "/");
+		res.redirect("/");
       })
       .catch(function(err) {
-		console.log("This is the error catch");
+		console.log("This is the error catch: " + err);
         res.status(401).json(err);
       });
   });

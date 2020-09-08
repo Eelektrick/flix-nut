@@ -3,8 +3,8 @@ $(document).ready(function () {
   var userRating = $("input#userRating");
   var averageRating = $("input#averageRating");
   var movieName = $("input#movieName");
+  var userId = $("input#userId");
 
-  
 
   addMovieForm.on("submit", function (event) {
     event.preventDefault();
@@ -12,25 +12,28 @@ $(document).ready(function () {
 		userRating: userRating.val().trim(),
 		averageRating: averageRating.val().trim(),
 		movieName: movieName.val().trim(),
+		userId: userId.val().trim(),
     };
 
-    if (!movieData.userRating || !movieData.averageRating || !movieData.movieName) {
+    if (!movieData.userRating || !movieData.averageRating || !movieData.movieName || !movieData.userId) {
       return;
     }
-    addMovie(movieData.userRating, movieData.averageRating, movieData.movieName);
-    userRating.val("");
-	averageRating.val("");
-	movieName.val("");
+    addMovie(movieData.userRating, movieData.averageRating, movieData.movieName, movieData.userId);
+    //userRating.val("");
+	//averageRating.val("");
+	//movieName.val("");
+	//userId.val("");
   });
 
-  function addMovie(userRating, averageRating, movieName) {
+  function addMovie(userRating, averageRating, movieName, userId) {
 
 	console.log("we got this far. Just before posting to route");
 
     $.post("/api/addmovie", {
 		userRating: userRating,
 		averageRating: averageRating,
-		movieName: movieName
+		movieName: movieName,
+		userId: userId,
     })
       .then(function (data) {
         window.location.replace("/");
