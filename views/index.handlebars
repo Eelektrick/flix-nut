@@ -64,7 +64,7 @@
         {{!-- image/link to show signed in and profile --}}
         <div class="col-md-2 mt-3 mr-2">
             <div class="dropdown">
-                <a href="" class="userPic btn dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+                <a href="" class="userPic btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
                 <img src="images/bat.png" alt="profile-pic" height="50px" width="50px" id="picture">
                 </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -77,17 +77,17 @@
     {{!-- ratings --}}
     <div class="row ratings">
         <div class="col-md-3 text-center">
-            {{yourRating}}50<br>
-            <p>Your Rating</p>
+            <p style="font-size: 20px">{{yourRating}}50</p>
+            <h5>Your Rating</h5>
         </div>
         <div class="col-sm-2"></div>
         <div class="col-md-2 text-center mt-3">
-            <p>VS</p>
+            <h3>VS</3>
         </div>
         <div class="col-sm-1"></div>
         <div class="col-md-3 text-center mr-3">
-            {{MobRating}}50<br>
-            <p>Mob Rating</p>
+            <p style="font-size: 20px">{{MobRating}}50</p>
+            <h5>Mob Rating</h5>
         </div>
     </div>
     <div class="row filter">
@@ -108,7 +108,7 @@
         <div class="col"></div>
     </div>
     {{!-- body --}}
-    <h3 class="text-center mt-5">Movie List</h3>
+    <h2 class="text-center mt-5">Movie List</h2>
     <div class="row">
         <div class="col-lg-12 mt-5 listbox pl-3">
             <ul class="movieList">
@@ -122,20 +122,12 @@
                                     <div class="row" id="card-row">
                                         <div class="col-md-2 pr-0">
                                             <p>Your Rating</p>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
+                                                <p>{{userRating}}</p>
                                         </div>
                                         <div class="col"></div>
                                         <div class="col-md-2 pr-0">
                                             <p>Mob Rating</p>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star"></span>
-                                                <span class="fa fa-star"></span>
+                                                <p>{{averageRating}}</p>
                                         </div>
                                     </div>
                                 </form> 
