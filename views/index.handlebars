@@ -47,6 +47,8 @@
 								<input type="text" id="userRating">
 								<input type="hidden" id="averageRating" value="">
 								<input type="hidden" id="movieName" value="">
+								<input type="hidden" id="moviePoster" value="">
+								<input type="hidden" id="moviePlot" value="">
 								<input type="hidden" id="userId" value="{{ userId }}">
 								<button type="submit" class="btn btn-primary" id="addYourRating">Rate</button>
 							</form>
@@ -120,11 +122,11 @@
 			{{#each watchedMovies}}
 			<div class="card" style="width: 18rem;">
 				<div style="height:200px; overflow:hidden;">
-					<img class="card-img-top" src="{{poster}}" alt="Card image cap">
+					<img class="card-img-top" src="{{moviePoster}}" alt="Card image cap">
 				</div>
 				<div class="card-body">
-					<h5 class="card-title">{{title}}</h5>
-					<p class="card-text">{{plot}}</p>
+					<h5 class="card-title">{{movieName}}</h5>
+					<p class="card-text">{{moviePlot}}</p>
 					<a href="#" class="btn btn-primary">Go somewhere</a>
 				</div>
 			</div>

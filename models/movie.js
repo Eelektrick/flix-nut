@@ -19,7 +19,16 @@ module.exports = function(sequelize, DataTypes) {
 	movieName: {
       type: DataTypes.STRING,
       allowNull: false,
-    }
+	},
+	moviePoster: {
+		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	moviePlot: {
+	type: DataTypes.STRING,
+	allowNull: false,
+	}
+
     // The password cannot be null
     
   });
