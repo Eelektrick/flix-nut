@@ -28,24 +28,22 @@ module.exports = function(app) {
 
   app.post("/api/addmovie", function(req, res) {
 
-	db.Movie.create({
-		userId: req.body.userId,
-		userRating: req.body.userRating,
-		averageRating: req.body.averageRating,
-		movieName: req.body.movieName,
-		moviePoster: req.body.moviePoster,
-		moviePlot: req.body.moviePlot,
+    db.Movie.create({
+      userId: req.body.userId,
+      userRating: req.body.userRating,
+      averageRating: req.body.averageRating,
+      movieName: req.body.movieName,
+      moviePoster: req.body.moviePoster,
+      moviePlot: req.body.moviePlot,
     })
-      .then(function() {
-		res.redirect("/");
-      })
-      .catch(function(err) {
-		console.log("This is the error catch: " + err);
-        res.status(401).json(err);
-      });
+    .then(function() {
+      res.redirect("/");
+    })
+    .catch(function(err) {
+      console.log("This is the error catch: " + err);
+          res.status(401).json(err);
+    });
   });
-
-
 
   // Route for logging user out
   app.get("/logout", function(req, res) {

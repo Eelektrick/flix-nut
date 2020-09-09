@@ -38,8 +38,6 @@
 }
 
 /* register and login page css */
-
-
 .center {
     margin: auto;
     padding-top: 250px;
@@ -60,4 +58,3 @@
 #email, #password, #login{
     margin-bottom: 15px;
 }
-

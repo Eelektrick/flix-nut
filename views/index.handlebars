@@ -12,22 +12,18 @@
             <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="searchBar">
-                        <input type="text" id="movie-input">
-                        <button class="btn btn-primary" id="add-movie">Search</button>
-                    </div>
-                    <div class="modal-body" id="movie-results">
-                    </div>
-                    <div class="modal-footer">
-                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                    </div>
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="searchBar">
+                            <input type="text" id="movie-input">
+                            <button class="btn btn-primary" id="add-movie">Search</button>
+                        </div>
+                        <div class="modal-body" id="movie-results"></div>
+                        <div class="modal-footer"></div>
                     </div>
                 </div>
             </div>
@@ -53,16 +49,16 @@
 								<button type="submit" class="btn btn-primary" id="addYourRating">Rate</button>
 							</form>
 						</div>
-						<div class="modal-footer">
-						</div>
+						<div class="modal-footer"></div>
                     </div>
                 </div>
             </div>
-
 		</div>
+
         <div class="col-md-1"></div>
         {{!-- view what you want to watch list, Button trigger modal --}}
         <div class="col-md-3 text-center mt-3">
+            {{!-- future plans --}}
             {{!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalLong2">
                 To Watch
             </button> --}}
@@ -74,11 +70,11 @@
                 <a href="" class="userPic btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
                 <img src="images/bat.png" alt="profile-pic" height="50px" width="50px" id="picture">
                 </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/logout">Logout</a>
-                    </div>
-            </div>
-            
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </div>    
         </div>
     </div>
     {{!-- ratings --}}
@@ -101,14 +97,15 @@
         {{!-- <div class="col-md-6"></div> --}}
         <div class="col-md-10"></div>
         <div class="col-md-1 ml-4">
-           {{!-- <div class="dropdown">
-             <button class="btn btn-secondary dropdown-toggle mt-1 mb-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Filter
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Your Rating</a>
-                <a class="dropdown-item" href="#">Mob Rating</a>
-                <a class="dropdown-item" href="#">Date Added</a>
+            {{!-- future plans --}}
+            {{!-- <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle mt-1 mb-1" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">Your Rating</a>
+                    <a class="dropdown-item" href="#">Mob Rating</a>
+                    <a class="dropdown-item" href="#">Date Added</a>
                 </div>
             </div>  --}}
         </div>
@@ -145,12 +142,12 @@
                                     <div class="row" id="card-row">
                                         <div class="col-md-2 pr-0">
                                             <p>Your Rating</p>
-                                                <p>{{userRating}}</p>
+                                            <p>{{userRating}}</p>
                                         </div>
                                         <div class="col"></div>
                                         <div class="col-md-2 pr-0">
                                             <p>Mob Rating</p>
-                                                <p>{{averageRating}}</p>
+                                            <p>{{averageRating}}</p>
                                         </div>
                                     </div>
                                 </form> 
