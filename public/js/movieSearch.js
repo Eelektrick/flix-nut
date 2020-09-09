@@ -61,6 +61,8 @@ function displayMovieInfo() {
 		movieCard.append(movieAdd);
 		$('#yourRatingTitle').text("Rate " + response.Title);
 		$('#movieName').val(response.Title);
+		$('#moviePoster').val(response.Poster);
+		$('#moviePlot').val(response.Plot);
 		$('#averageRating').val(averageRating);
 
 	});

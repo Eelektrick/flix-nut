@@ -33,6 +33,8 @@ module.exports = function(app) {
 		userRating: req.body.userRating,
 		averageRating: req.body.averageRating,
 		movieName: req.body.movieName,
+		moviePoster: req.body.moviePoster,
+		moviePlot: req.body.moviePlot,
     })
       .then(function() {
 		res.redirect("/");
