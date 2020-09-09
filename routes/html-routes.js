@@ -18,9 +18,21 @@ module.exports = function(app) {
 
 		//console.log("All movies:", JSON.stringify(watchedMovies, null, 2));
 
+		// var i = 0;
+		// for (i = 0; i < watchedMovies.length; i++) {
+		// 	mobRating = mobRating + watchedMovies[i].averageRating;
+		// 	yourRating = yourRating + watchedMovies[i].userRating;
+		// }
+
+		//mobRating = 66;
+		//yourRating = 69;
+
+
 		return res.render("index", {
 			userId: req.session.passport.user.id,
-			watchedMovies: watchedMovies
+			watchedMovies: watchedMovies,
+			mobRating: mobRating,
+			yourRating: yourRating
 		});
 		
     }
