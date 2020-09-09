@@ -2,6 +2,16 @@
 .container-fluid {
     height: 100vh;
 }
+.masterHeader {
+    margin-top: 15px;
+}
+
+#logo {
+    height: 100px;
+    width: 250px;
+    margin: auto;
+    display: block;
+}
 
 .navbar, .ratings, .filter {
     flex-wrap: nowrap;
@@ -40,7 +50,7 @@
 /* register and login page css */
 .center {
     margin: auto;
-    padding-top: 250px;
+    padding-top: 150px;
 }
 
 #Nmember{
