@@ -5,9 +5,10 @@ const axios = require("axios");
 
 module.exports = function(app) {
 
-  app.get("/", async function(req, res) {
+  app.get("/", function(req, res) {
     if (req.user) {
 
+		const movieQuery = async () => {
 		  const watchedMovies = await db.Movie.findAll({
 			  attributes: ['movieName', 'userRating', 'averageRating', 'moviePoster', 'moviePlot'],
 			  where: {
@@ -15,8 +16,10 @@ module.exports = function(app) {
 			  },
 			  raw: true,
 		  });
+		  return watchedMovies;
+		}
 
-      const moviesRating = await movies();
+      //const ratingsArray = await movieRatings();
       //console.log("All movies:", JSON.stringify(watchedMovies, null, 2));
 
       // var i = 0;
@@ -26,28 +29,42 @@ module.exports = function(app) {
       // }
 
       //mobRating = 66;
-      //yourRating = 69;
+	  //yourRating = 69;
 
+	  const movieRatings = async ()=>{
+		const watchedMovies = await movieQuery();
+		console.log("All movies:", JSON.stringify(watchedMovies, null, 2));
+		var i = 0;
+		var mobRating = 0;
+		var yourRating = 0;
+		for (i = 0; i < watchedMovies.length; i++){
+			mobRating = mobRating + watchedMovies[i].averageRating;
+			yourRating = yourRating + watchedMovies[i].userRating;
+		}
+		mobRating = mobRating / watchedMovies.length;
+		yourRating = yourRating / watchedMovies.length;	
+		console.log(mobRating);
+		console.log(yourRating);	
+		ratingsObject = {"mobRating":mobRating, "yourRating":yourRating, "watchedMovies":watchedMovies};
+		return ratingsObject;
+	  };
 
-      return res.render("index", {
-        userId: req.session.passport.user.id,
-        watchedMovies: watchedMovies,
-        mobRating: mobRating,
-        yourRating: yourRating
-      });
+		movieRatings().then(ratingsObject => {
+			console.log("mobRating?: " + ratingsObject.mobRating)
+			console.log("yourRating?: " + ratingsObject.yourRating)
+		})
+	  
+		return res.render("index", {
+			userId: req.session.passport.user.id,
+			watchedMovies: ratingsObject.watchedMovies,
+			mobRating: ratingsObject.mobRating,
+			yourRating: ratingsObject.yourRating
+		});
 		
     }
     res.render("login");
   });
-
-  const movies = async ()=>{
-    var i = 0;
-
-	  for (i = 0; i < watchedMovies.length; i++){
-		  mobRating = mobRating + watchedMovies[i].averageRating;
-			yourRating = yourRating + watchedMovies[i].userRating;
-		}
-  };
+  
 
   app.get("/login", function(req, res) {
     if (req.user) {
