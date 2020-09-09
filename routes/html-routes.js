@@ -8,36 +8,46 @@ module.exports = function(app) {
   app.get("/", async function(req, res) {
     if (req.user) {
 
-		const watchedMovies = await db.Movie.findAll({
-			attributes: ['movieName', 'userRating', 'averageRating', 'moviePoster', 'moviePlot'],
-			where: {
-				userId: req.session.passport.user.id
-			},
-			raw: true,
-		});
+		  const watchedMovies = await db.Movie.findAll({
+			  attributes: ['movieName', 'userRating', 'averageRating', 'moviePoster', 'moviePlot'],
+			  where: {
+				  userId: req.session.passport.user.id
+			  },
+			  raw: true,
+		  });
 
-		//console.log("All movies:", JSON.stringify(watchedMovies, null, 2));
+      const moviesRating = await movies();
+      //console.log("All movies:", JSON.stringify(watchedMovies, null, 2));
 
-		// var i = 0;
-		// for (i = 0; i < watchedMovies.length; i++) {
-		// 	mobRating = mobRating + watchedMovies[i].averageRating;
-		// 	yourRating = yourRating + watchedMovies[i].userRating;
-		// }
+      // var i = 0;
+      // for (i = 0; i < watchedMovies.length; i++) {
+      // 	mobRating = mobRating + watchedMovies[i].averageRating;
+      // 	yourRating = yourRating + watchedMovies[i].userRating;
+      // }
 
-		//mobRating = 66;
-		//yourRating = 69;
+      //mobRating = 66;
+      //yourRating = 69;
 
 
-		return res.render("index", {
-			userId: req.session.passport.user.id,
-			watchedMovies: watchedMovies,
-			mobRating: mobRating,
-			yourRating: yourRating
-		});
+      return res.render("index", {
+        userId: req.session.passport.user.id,
+        watchedMovies: watchedMovies,
+        mobRating: mobRating,
+        yourRating: yourRating
+      });
 		
     }
     res.render("login");
   });
+
+  const movies = async ()=>{
+    var i = 0;
+
+	  for (i = 0; i < watchedMovies.length; i++){
+		  mobRating = mobRating + watchedMovies[i].averageRating;
+			yourRating = yourRating + watchedMovies[i].userRating;
+		}
+  };
 
   app.get("/login", function(req, res) {
     if (req.user) {
