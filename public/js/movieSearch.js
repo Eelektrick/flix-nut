@@ -1,8 +1,18 @@
 function displayMovieInfo() {
 
 	var movie = $("#movie-input").val();
-	//var movie = $(this).attr("data-name");
-	var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+	movieYear = movie.substring(movie.indexOf(' '));
+	movieYear = movieYear.trim();
+	console.log("movieYear: " + movieYear);
+	if (!isNaN(movieYear)) {
+		movie = movie.substring(0, movie.indexOf(' '));
+		movie = movie.trim();
+		var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=" + movieYear + "&apikey=trilogy";
+		console.log("queryUrl 1: " + queryURL);
+	} else {
+		var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+		console.log("queryUrl 1: " + queryURL);
+	}
 
 	$.ajax({
 		url: queryURL,
@@ -21,12 +31,14 @@ function displayMovieInfo() {
 		mcRating = response.Ratings[2].Value;
 		mcRating = mcRating.substring(0, mcRating.indexOf('/'));
 		//console.log("mcNormalized: " + mcRating);
+		if (!response.imdbRating)
+
 		averageRating = Math.round(((parseInt(imdbRating) + parseInt(rtRating) + parseInt(mcRating))/3), 0);
 		//console.log("averageRating: " + averageRating);
 
 		// Truncate plot summary
 		truncatedPlot = response.Plot;
-		truncatedPlot = truncatedPlot.substring(0,30) + "...";
+		truncatedPlot = truncatedPlot.substring(0,80) + "...";
 
 		$("#movieGroup").remove();
 
@@ -38,7 +50,7 @@ function displayMovieInfo() {
 		moviePosterContainer.append(moviePoster);
 		var movieCard = $('<div class="card-body">');
 		movieGroup.append(movieCard);
-		var movieName = $('<h5 class="card-title">').text(response.Title);
+		var movieName = $('<h5 class="card-title" style="border-bottom: 1px solid #d9d9d9; padding-bottom: 20px; font-size: 30px; text-align:center;">').text(response.Title);
 		movieCard.append(movieName);
 		var movieRow = $('<div class="row" id="this-is-a-test">');
 		movieCard.append(movieRow);
@@ -49,11 +61,9 @@ function displayMovieInfo() {
 		var movieRelease = $('<p class="card-text" id="movieRelease">').text(response.Released);
 		columnOne.append(movieRelease);
 		var movieDirector = $('<p class="card-text" id="movieActors">').text(response.Director);
-		columnOne.append(movieDirector);
-		var moviePlot = $('<p class="card-text" id="movieActors"> style="text-align:left;"').text(truncatedPlot);
+		columnTwo.append(movieDirector);
+		var moviePlot = $('<p class="card-text" id="moviePlot" style="text-align:left; padding-top:20px;">').text(truncatedPlot);
 		movieCard.append(moviePlot);
-		var movieIMDB = $('<p class="card-text" id="movieActors">').text("Rating: " + averageRating);
-		columnTwo.append(movieIMDB);
 
 		//var movieActors = $('<p class="card-text" id="movieActors">').text("Actors: " + response.Actors);
 		//movieCard.append(movieActors);
