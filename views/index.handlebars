@@ -1,7 +1,7 @@
 
-<div class="container-fluid bg-primary">
+<div class="container-fluid">
     {{!-- buttons and user profile pic --}}
-    <div class="row navbar">
+    <div class="row navbar" style="border-bottom: 1px solid #d9d9d9;">
         {{!-- search movies button, Button trigger modal --}}
         
         <div class="col-md-3 text-center mt-3">
@@ -12,18 +12,20 @@
             <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="searchBar">
-                            <input type="text" id="movie-input">
-                            <button class="btn btn-primary" id="add-movie">Search</button>
-                        </div>
-                        <div class="modal-body" id="movie-results"></div>
-                        <div class="modal-footer"></div>
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="searchBar">
+                        <input type="text" id="movie-input">
+                        <button class="btn btn-primary" id="add-movie">Search</button>
+                    </div>
+                    <div class="modal-body" id="movie-results">
+                    </div>
+
                     </div>
                 </div>
             </div>
@@ -67,8 +69,8 @@
         {{!-- image/link to show signed in and profile --}}
         <div class="col-md-2 mt-3 mr-2">
             <div class="dropdown">
-                <a href="" class="userPic btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
-                <img src="images/bat.png" alt="profile-pic" height="50px" width="50px" id="picture">
+                <a href="" style="border:none;" class="userPic btn btn-outline-primary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown">
+                <img src="images/bat.png" alt="profile-pic" height="40px" width="40px" id="picture">
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -80,7 +82,7 @@
     {{!-- ratings --}}
     <div class="row ratings">
         <div class="col-md-3 text-center">
-            <p style="font-size: 20px">{{yourRating}}50</p>
+            <p class="{{yourColor}}" style="font-size: 40px; font-weight:600;">{{yourRating}}</p>
             <h5>Your Rating</h5>
         </div>
         <div class="col-sm-2"></div>
@@ -89,7 +91,7 @@
         </div>
         <div class="col-sm-1"></div>
         <div class="col-md-3 text-center mr-3">
-            <p style="font-size: 20px">{{MobRating}}50</p>
+            <p class="{{mobColor}}" style="font-size: 40px; font-weight:600;">{{mobRating}}</p>
             <h5>Mob Rating</h5>
         </div>
     </div>
@@ -112,51 +114,32 @@
         <div class="col"></div>
     </div>
     {{!-- body --}}
-    <h2 class="text-center mt-5">Movie List</h2>
-    <div class="row">
+    <div class="row bg-primary">
 
-		<div class="col-lg-12 mt-5 listbox pl-3">
+		<div class="col-lg-12" style="padding-top:40px;">
 			{{#each watchedMovies}}
-			<div class="card" style="width: 18rem;">
+			<div class="card" style="width: 19rem; margin-left:auto; margin-right:auto; margin-bottom:40px;">
 				<div style="height:200px; overflow:hidden;">
 					<img class="card-img-top" src="{{moviePoster}}" alt="Card image cap">
 				</div>
 				<div class="card-body">
-					<h5 class="card-title">{{movieName}}</h5>
+					<h5 class="card-title" style="border-bottom: 1px solid #d9d9d9; padding-bottom: 20px; font-size: 30px; text-align: center;">{{movieName}}</h5>
+					<div class="row">
+						<div class="col-6">
+							<p style="text-align:center; font-size:25px;">{{userRating}}</p>
+							<p style="text-align:center;">Your Rating</p>
+						</div>
+						<div class="col-6">
+							<p style="text-align:center; font-size:25px;">{{averageRating}}</p>
+							<p style="text-align:center;">Mob Rating</p>
+						</div>
+					</div>
 					<p class="card-text">{{moviePlot}}</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<a href="#" class="btn btn-primary" style="display:block;">More</a>
 				</div>
 			</div>
 			{{/each}}
 		</div>
-
-        <div class="col-lg-12 mt-5 listbox pl-3">
-            <ul class="movieList">
-                <li>
-                    <div class="row">
-                        <div class="col-md-9 card movie-card" data-toggle="collapse" style=>
-                            <div class="card-body">
-                                <form action="" class="search-form" method="GET">
-                                    <h5 class="card-title">{{MovieTitle}}</h5>
-                                    <p class="card-text">{{MovieDescription}}</p>
-                                    <div class="row" id="card-row">
-                                        <div class="col-md-2 pr-0">
-                                            <p>Your Rating</p>
-                                            <p>{{userRating}}</p>
-                                        </div>
-                                        <div class="col"></div>
-                                        <div class="col-md-2 pr-0">
-                                            <p>Mob Rating</p>
-                                            <p>{{averageRating}}</p>
-                                        </div>
-                                    </div>
-                                </form> 
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 

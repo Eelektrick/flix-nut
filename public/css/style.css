@@ -66,4 +66,12 @@
 
 #email, #password, #login{
     margin-bottom: 15px;
+
 }
+
+.rating-5 {color:red;}
+.rating-4 {color:orange;}
+.rating-3 {color:yellow;}
+.rating-2 {color:green;}
+.rating-1 {color:blue;}
+
