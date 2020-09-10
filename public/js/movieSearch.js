@@ -24,15 +24,13 @@ function displayMovieInfo() {
 		//$("body").append(newDiv);
 
 		imdbRating = (response.imdbRating)*10;
-		//console.log("imdbNormalized: " + imdbRating);
+		console.log("imdbNormalized: " + imdbRating);
 		rtRating = response.Ratings[1].Value;
 		rtRating = rtRating.substr(0,rtRating.length-1);
-		//console.log("rtNormalized: " + rtRating);
+		console.log("rtNormalized: " + rtRating);
 		mcRating = response.Ratings[2].Value;
 		mcRating = mcRating.substring(0, mcRating.indexOf('/'));
-		//console.log("mcNormalized: " + mcRating);
-		if (!response.imdbRating)
-
+		console.log("mcNormalized: " + mcRating);
 		averageRating = Math.round(((parseInt(imdbRating) + parseInt(rtRating) + parseInt(mcRating))/3), 0);
 		//console.log("averageRating: " + averageRating);
 
@@ -72,7 +70,9 @@ function displayMovieInfo() {
 		$('#yourRatingTitle').text("Rate " + response.Title);
 		$('#movieName').val(response.Title);
 		$('#moviePoster').val(response.Poster);
-		$('#moviePlot').val(response.Plot);
+		console.log("this is the plot: " + response.Plot);
+		$('#moviePlot2').val(response.Plot);
+		//$('#moviePlot').val(response.Plot);
 		$('#averageRating').val(averageRating);
 	});
 }
