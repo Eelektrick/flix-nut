@@ -74,12 +74,8 @@ function displayMovieInfo() {
 		$('#moviePoster').val(response.Poster);
 		$('#moviePlot').val(response.Plot);
 		$('#averageRating').val(averageRating);
-
 	});
-
-
 }
-
 
 $("#add-movie").on("click", function(event) {
 	event.preventDefault();

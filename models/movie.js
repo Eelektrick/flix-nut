@@ -2,36 +2,33 @@
 var bcrypt = require("bcryptjs");
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
-  var Movie = sequelize.define("Movie", {
-    // The email cannot be null, and must be a proper email before creation
-	userId: {
-		type: DataTypes.INTEGER,
-		allowNull: false
-	},
-	userRating: {
-		type: DataTypes.STRING,
-		allowNull: false
-	},
-	averageRating: {
-		type: DataTypes.STRING,
-		allowNull: false
-	},
-	movieName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-	},
-	moviePoster: {
+	var Movie = sequelize.define("Movie", {
+		// The email cannot be null, and must be a proper email before creation
+		userId: {
+			type: DataTypes.INTEGER,
+			allowNull: false
+		},
+		userRating: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		averageRating: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		movieName: {
 		type: DataTypes.STRING,
 		allowNull: false,
-	},
-	moviePlot: {
-	type: DataTypes.STRING,
-	allowNull: false,
-	}
-
-    // The password cannot be null
-    
-  });
-
-  return Movie;
+		},
+		moviePoster: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		moviePlot: {
+		type: DataTypes.STRING,
+		allowNull: false,
+		}
+		// The password cannot be null  
+	});
+	return Movie;
 };

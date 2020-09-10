@@ -26,14 +26,14 @@ $(document).ready(function () {
     }
     addMovie(movieData.userRating, movieData.averageRating, movieData.movieName, movieData.userId, movieData.moviePoster, movieData.moviePlot);
     //userRating.val("");
-	//averageRating.val("");
-	//movieName.val("");
-	//userId.val("");
+	  //averageRating.val("");
+	  //movieName.val("");
+	  //userId.val("");
   });
 
   function addMovie(userRating, averageRating, movieName, userId, moviePoster, moviePlot) {
 
-	//console.log("we got this far. Just before posting to route");
+	  //console.log("we got this far. Just before posting to route");
 
     $.post("/api/addmovie", {
 		userRating: userRating,
@@ -43,11 +43,11 @@ $(document).ready(function () {
 		moviePoster: moviePoster,
 		moviePlot: moviePlot,
     })
-      .then(function (data) {
-        window.location.replace("/");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
+    .then(function (data) {
+      window.location.replace("/");
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })
+    .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {

@@ -23,11 +23,11 @@ $(document).ready(function () {
       email: email,
       password: password,
     })
-      .then(function (data) {
-        window.location.replace("/");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
+    .then(function (data) {
+      window.location.replace("/");
+      // If there's an error, handle it by throwing up a bootstrap alert
+    })
+    .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
