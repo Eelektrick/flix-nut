@@ -7,6 +7,9 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const passport = require("./config/passport");
 
+const favicon = require("serve-favicon");
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
